@@ -48,10 +48,6 @@ function App() {
             </div>
           )}
         </div>
-        <div className="signin-preview">
-          <h3>Preview of our Sign In Experience</h3>
-          <img src="/signin-screenshot.png" alt="Sign In Page Preview" className="signin-screenshot" />
-        </div>
       </div>
     </div>
   );
