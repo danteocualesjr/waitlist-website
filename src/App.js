@@ -3,6 +3,7 @@ import './App.css';
 import { FaRunning } from 'react-icons/fa';
 
 function App() {
+  
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
