@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import { FaRunning } from 'react-icons/fa';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -14,15 +15,18 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container">
-        <h1>Rundezvous</h1>
+      <div className="container glass">
+        <div className="branding">
+          <FaRunning className="logo-icon" />
+          <h1>Rundezvous</h1>
+        </div>
         <h2>Run, Meet Cute</h2>
         <div className="waitlist-content">
           {!submitted ? (
             <>
               <p>The first dating app that matches runners based on pace, distance, and running goals.</p>
               <p className="subtitle">Find your perfect running partner and maybe something more ✨</p>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="waitlist-form">
                 <input
                   type="email"
                   value={email}
@@ -30,12 +34,14 @@ function App() {
                   placeholder="Enter your email"
                   required
                 />
-                <button type="submit">Join the Waitlist</button>
+                <button type="submit">
+                  <span>Join the Waitlist</span>
+                </button>
               </form>
               <p className="terms">By joining, you agree to our Terms and Privacy Policy</p>
             </>
           ) : (
-            <div className="success-message">
+            <div className="success-message animate-in">
               <h2>You're on the Starting Line! 🎉</h2>
               <p>We'll notify you when it's time to start your journey to finding your running soulmate.</p>
             </div>
