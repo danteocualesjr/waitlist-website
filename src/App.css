@@ -283,6 +283,85 @@ button:hover::after, button:focus::after {
   cursor: not-allowed;
 }
 
+/* --- Dark Mode Styles --- */
+.App.dark-mode {
+  background: linear-gradient(120deg, #0a2540 0%, #232526 100%),
+    url('https://images.unsplash.com/photo-1502904550040-7534597429ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  color: #e3e3e3;
+}
+.App.dark-mode .container.glass {
+  background: rgba(10, 37, 64, 0.24);
+  box-shadow: 0 12px 48px rgba(10, 37, 64, 0.28), 0 1.5px 8px rgba(255, 77, 109, 0.10);
+  border: 1.5px solid rgba(255,255,255,0.08);
+}
+.App.dark-mode .branding h1 {
+  color: #ffb3c6;
+}
+.App.dark-mode .logo-icon {
+  color: #ffb3c6;
+}
+.App.dark-mode .waitlist-content p,
+.App.dark-mode .terms {
+  color: #e3e3e3 !important;
+}
+.App.dark-mode .social-buttons a {
+  background: rgba(255,255,255,0.07);
+  color: #ffb3c6;
+}
+.App.dark-mode .social-buttons a:hover, .App.dark-mode .social-buttons a:focus {
+  background: #ffb3c6;
+  color: #0a2540;
+}
+.App.dark-mode .success-message {
+  background: linear-gradient(90deg, #0a2540 0%, #232526 100%);
+  color: #fff;
+}
+.App.dark-mode .feedback.error {
+  background: rgba(255, 77, 109, 0.09);
+  color: #ffb3c6;
+  border-color: #ffb3c6;
+}
+.App.dark-mode .feedback.success {
+  background: rgba(52, 199, 89, 0.09);
+  color: #34c759;
+  border-color: #34c759;
+}
+
+/* Dark mode toggle button */
+.darkmode-toggle {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  background: rgba(255,255,255,0.18);
+  border: none;
+  border-radius: 50%;
+  width: 2.3rem;
+  height: 2.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #ff4d6d;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255,77,109,0.09);
+  transition: background 0.18s, color 0.18s, transform 0.15s;
+  z-index: 10;
+}
+.darkmode-toggle:hover, .darkmode-toggle:focus {
+  background: #ff4d6d;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.App.dark-mode .darkmode-toggle {
+  background: rgba(10,37,64,0.18);
+  color: #ffb3c6;
+}
+.App.dark-mode .darkmode-toggle:hover, .App.dark-mode .darkmode-toggle:focus {
+  background: #ffb3c6;
+  color: #0a2540;
+}
+
 @media (max-width: 480px) {
   .container {
     padding: 2rem 1.1rem;

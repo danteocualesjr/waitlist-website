@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { FaRunning, FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaRunning, FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn, FaMoon, FaSun } from 'react-icons/fa';
 
 function App() {
   
@@ -8,6 +8,7 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [darkMode, setDarkMode] = useState(false);
 
   const validateEmail = (email) => {
     // Simple regex for email validation
@@ -30,13 +31,21 @@ function App() {
     }, 1200);
   };
 
+  const handleToggleDarkMode = () => {
+    setDarkMode((prev) => !prev);
+  };
+
   return (
-    <div className="App">
+    <div className={`App${darkMode ? ' dark-mode' : ''}`}>
       <div className="container glass">
         <div className="branding">
           <FaRunning className="logo-icon" />
           <h1>Rundezvous</h1>
         </div>
+        {/* Dark Mode Toggle */}
+        <button className="darkmode-toggle" onClick={handleToggleDarkMode} aria-label="Toggle dark mode">
+          {darkMode ? <FaSun /> : <FaMoon />}
+        </button>
         {/* Social Media Buttons */}
         <div className="social-buttons">
           <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
