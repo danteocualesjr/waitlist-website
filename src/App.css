@@ -257,6 +257,32 @@ button:hover::after, button:focus::after {
   box-shadow: 0 4px 18px rgba(255,77,109,0.17);
 }
 
+/* Feedback messages for form */
+.feedback {
+  margin-top: 0.7rem;
+  padding: 0.8rem 1.1rem;
+  border-radius: 12px;
+  font-size: 1.03rem;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(255,77,109,0.09);
+}
+.feedback.error {
+  background: rgba(255, 77, 109, 0.13);
+  color: #ff4d6d;
+  border: 1.5px solid #ff4d6d;
+}
+.feedback.success {
+  background: rgba(52, 199, 89, 0.13);
+  color: #34c759;
+  border: 1.5px solid #34c759;
+}
+
+.waitlist-form button[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 @media (max-width: 480px) {
   .container {
     padding: 2rem 1.1rem;

@@ -6,12 +6,28 @@ function App() {
   
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const validateEmail = (email) => {
+    // Simple regex for email validation
+    return /^\S+@\S+\.\S+$/.test(email);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Email submitted:', email);
-    setSubmitted(true);
-    setEmail('');
+    setError('');
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    setLoading(true);
+    // Simulate async submission
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+      setEmail('');
+    }, 1200);
   };
 
   return (
@@ -34,17 +50,19 @@ function App() {
             <>
               <p>The first dating app that matches runners based on pace, distance, and running goals.</p>
               <p className="subtitle">Find your perfect running partner and maybe something more ✨</p>
-              <form onSubmit={handleSubmit} className="waitlist-form">
+              <form className="waitlist-form" onSubmit={handleSubmit} autoComplete="off">
                 <input
                   type="email"
+                  placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
+                  disabled={loading}
                   required
                 />
-                <button type="submit">
-                  <span>Join the Waitlist</span>
+                <button type="submit" disabled={loading}>
+                  <span>{loading ? 'Joining...' : 'Join the Waitlist'}</span>
                 </button>
+                {error && <div className="feedback error">{error}</div>}
               </form>
               <p className="terms">By joining, you agree to our Terms and Privacy Policy</p>
             </>
@@ -52,6 +70,7 @@ function App() {
             <div className="success-message animate-in">
               <h2>You're on the Starting Line! 🎉</h2>
               <p>We'll notify you when it's time to start your journey to finding your running soulmate.</p>
+              <div className="feedback success">Thank you for joining the waitlist! Please check your email for confirmation.</div>
             </div>
           )}
         </div>
