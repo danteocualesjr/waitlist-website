@@ -229,6 +229,34 @@ button:hover::after, button:focus::after {
   display: block;
 }
 
+/* --- Social Media Buttons --- */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+.social-buttons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: #ff4d6d;
+  font-size: 1.35rem;
+  transition: background 0.2s, color 0.2s, transform 0.18s;
+  box-shadow: 0 2px 8px rgba(255,77,109,0.09);
+  text-decoration: none;
+}
+.social-buttons a:hover, .social-buttons a:focus {
+  background: #ff4d6d;
+  color: #fff;
+  transform: scale(1.11) translateY(-2px);
+  box-shadow: 0 4px 18px rgba(255,77,109,0.17);
+}
+
 @media (max-width: 480px) {
   .container {
     padding: 2rem 1.1rem;

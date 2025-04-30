@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { FaRunning } from 'react-icons/fa';
+import { FaRunning, FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 function App() {
   
@@ -20,6 +20,13 @@ function App() {
         <div className="branding">
           <FaRunning className="logo-icon" />
           <h1>Rundezvous</h1>
+        </div>
+        {/* Social Media Buttons */}
+        <div className="social-buttons">
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
+          <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>
         </div>
         <h2>Run, Meet Cute</h2>
         <div className="waitlist-content">
