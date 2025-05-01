@@ -283,6 +283,25 @@ button:hover::after, button:focus::after {
   cursor: not-allowed;
 }
 
+/* Countdown Timer Styles */
+.countdown-timer {
+  margin: 1.2rem 0 2.2rem 0;
+  padding: 0.7rem 1.1rem;
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 14px;
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #ff4d6d;
+  letter-spacing: 1px;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(255,77,109,0.09);
+  transition: background 0.2s, color 0.2s;
+}
+.App.dark-mode .countdown-timer {
+  background: rgba(10, 37, 64, 0.18);
+  color: #ffb3c6;
+}
+
 /* --- Dark Mode Styles --- */
 .App.dark-mode {
   background: linear-gradient(120deg, #0a2540 0%, #232526 100%),

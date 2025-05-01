@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { FaRunning, FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn, FaMoon, FaSun } from 'react-icons/fa';
 
@@ -35,6 +35,39 @@ function App() {
     setDarkMode((prev) => !prev);
   };
 
+  // Move calculateTimeLeft outside the component to avoid useEffect dependency warning
+  function calculateTimeLeft(targetDate) {
+    const difference = +new Date(targetDate) - +new Date();
+    let timeLeft = {};
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60)
+      };
+    }
+    return timeLeft;
+  }
+
+  function CountdownTimer({ targetDate }) {
+    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
+    useEffect(() => {
+      const timer = setInterval(() => {
+        setTimeLeft(calculateTimeLeft(targetDate));
+      }, 1000);
+      return () => clearInterval(timer);
+    }, [targetDate]);
+    if (Object.keys(timeLeft).length === 0) {
+      return <div className="countdown-timer">🎉 We are live! 🎉</div>;
+    }
+    return (
+      <div className="countdown-timer">
+        <span>{timeLeft.days}d</span> : <span>{timeLeft.hours}h</span> : <span>{timeLeft.minutes}m</span> : <span>{timeLeft.seconds}s</span> until launch
+      </div>
+    );
+  }
+
   return (
     <div className={`App${darkMode ? ' dark-mode' : ''}`}>
       <div className="container glass">
@@ -54,6 +87,8 @@ function App() {
           <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>
         </div>
         <h2>Run, Meet Cute</h2>
+        {/* Countdown Timer */}
+        <CountdownTimer targetDate="2025-06-01T12:00:00" />
         <div className="waitlist-content">
           {!submitted ? (
             <>
