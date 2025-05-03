@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 function AdminDashboard() {
+  
   // For demo: use local state for waitlist users
   const [users, setUsers] = useState(() => {
     // Try to load from localStorage
