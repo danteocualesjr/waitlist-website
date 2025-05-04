@@ -17,7 +17,7 @@ function AdminDashboard() {
   const [search, setSearch] = useState('');
 
   // For remembering admin credentials
-  
+
   const [adminEmail, setAdminEmail] = useState(() => localStorage.getItem('adminEmail') || '');
   const [adminPassword, setAdminPassword] = useState(() => localStorage.getItem('adminPassword') || '');
   const [showRegister, setShowRegister] = useState(false);
@@ -62,7 +62,7 @@ function AdminDashboard() {
 
   if (!adminEmail || !adminPassword || showRegister) {
     return (
-      <div className="admin-login">
+      <div className="admin-login admin-glass">
         <h2>Admin Registration</h2>
         <form onSubmit={handleRegister} autoComplete="off">
           <input
@@ -77,7 +77,7 @@ function AdminDashboard() {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          <button type="submit">Register</button>
+          <button type="submit"><span>Register</span></button>
         </form>
       </div>
     );
@@ -85,7 +85,7 @@ function AdminDashboard() {
 
   if (!authenticated) {
     return (
-      <div className="admin-login">
+      <div className="admin-login admin-glass">
         <h2>Admin Login</h2>
         <form onSubmit={handleLogin} autoComplete="off">
           <input
@@ -100,24 +100,28 @@ function AdminDashboard() {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          <button type="submit">Login</button>
+          <button type="submit"><span>Login</span></button>
         </form>
-        <button style={{marginTop: 8}} onClick={() => setShowRegister(true)}>Register new admin</button>
+        <button className="secondary-btn" style={{marginTop: 8}} onClick={() => setShowRegister(true)}><span>Register new admin</span></button>
       </div>
     );
   }
 
   return (
-    <div className="admin-dashboard">
-      <h2>Waitlist Admin Dashboard</h2>
-      <button onClick={handleExport}>Export CSV</button>
-      <input
-        type="text"
-        placeholder="Search emails..."
-        value={search}
-        onChange={e => setSearch(e.target.value)}
-        style={{ marginLeft: 16 }}
-      />
+    <div className="admin-dashboard admin-glass">
+      <div className="admin-header">
+        <h2><span role="img" aria-label="Shield">🛡️</span> Waitlist Admin Dashboard</h2>
+        <div className="admin-actions">
+          <button onClick={handleExport}><span>Export CSV</span></button>
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search emails..."
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+          />
+        </div>
+      </div>
       <table className="waitlist-table">
         <thead>
           <tr>

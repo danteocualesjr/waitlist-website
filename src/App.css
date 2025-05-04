@@ -409,3 +409,123 @@ button:hover::after, button:focus::after {
     font-size: 1.6rem;
   }
 }
+
+/* --- Admin Dashboard Modern Styles --- */
+.admin-glass {
+  background: rgba(255,255,255,0.13);
+  box-shadow: 0 12px 48px rgba(10,37,64,0.18), 0 1.5px 8px rgba(255,77,109,0.13);
+  border-radius: 32px;
+  padding: 2.5rem 2rem;
+  max-width: 430px;
+  margin: 2rem auto;
+  backdrop-filter: blur(22px) saturate(140%);
+  border: 1.5px solid rgba(255,255,255,0.19);
+  color: #fff;
+  animation: fadein 0.7s cubic-bezier(.4,2,.6,1);
+}
+
+.admin-dashboard {
+  width: 100%;
+  min-height: 400px;
+}
+
+.admin-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+  margin-bottom: 1.7rem;
+}
+.admin-header h2 {
+  font-size: 1.45rem;
+  color: #ffb3c6;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.admin-actions {
+  display: flex;
+  gap: 1.1rem;
+  width: 100%;
+}
+.search-input {
+  flex: 1;
+  padding: 0.8rem 1.1rem;
+  font-size: 1rem;
+  border-radius: 14px;
+  border: 1.2px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.11);
+  color: #fff;
+  transition: border 0.2s, background 0.2s;
+}
+.search-input:focus {
+  outline: none;
+  border-color: #ff4d6d;
+  background: rgba(255,255,255,0.21);
+}
+
+.waitlist-table {
+  width: 100%;
+  margin-top: 1.8rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(255,255,255,0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(10,37,64,0.08);
+}
+.waitlist-table th, .waitlist-table td {
+  padding: 0.95rem 1.1rem;
+  text-align: left;
+  color: #fff;
+}
+.waitlist-table th {
+  background: rgba(255,77,109,0.13);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-bottom: 1.5px solid rgba(255,255,255,0.10);
+}
+.waitlist-table tr:nth-child(even) td {
+  background: rgba(255,255,255,0.06);
+}
+.waitlist-table tr:hover td {
+  background: rgba(255,77,109,0.09);
+  transition: background 0.2s;
+}
+
+.admin-login {
+  width: 100%;
+}
+.secondary-btn {
+  background: transparent;
+  color: #ffb3c6;
+  border: 1.5px solid #ffb3c6;
+  margin-top: 0.7rem;
+  font-weight: 600;
+  border-radius: 14px;
+  padding: 0.85rem 1.2rem;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.secondary-btn:hover, .secondary-btn:focus {
+  background: #ffb3c6;
+  color: #0a2540;
+  border-color: #ffb3c6;
+}
+
+@media (max-width: 600px) {
+  .admin-glass {
+    padding: 1.2rem 0.6rem;
+    border-radius: 18px;
+    max-width: 99vw;
+  }
+  .admin-header {
+    gap: 0.7rem;
+  }
+  .waitlist-table th, .waitlist-table td {
+    padding: 0.7rem 0.5rem;
+    font-size: 0.97rem;
+  }
+}
