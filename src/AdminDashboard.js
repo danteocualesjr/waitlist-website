@@ -10,6 +10,7 @@ function AdminDashboard() {
     const stored = localStorage.getItem('waitlistUsers');
     return stored ? JSON.parse(stored) : [];
   });
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [authenticated, setAuthenticated] = useState(false);
