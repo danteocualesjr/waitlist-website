@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { FaRunning, FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn, FaMoon, FaSun } from 'react-icons/fa';
-import AdminDashboard from './AdminDashboard';
 
 function App() {
   
@@ -10,7 +9,6 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [darkMode, setDarkMode] = useState(false);
-  const [showAdmin, setShowAdmin] = useState(false);
 
   const validateEmail = (email) => {
     // Simple regex for email validation
@@ -87,65 +85,54 @@ function App() {
         <div className="branding">
           <FaRunning className="logo-icon logo-animate" />
           <h1>Rundezvous</h1>
-          <span className="admin-badge">ADMIN</span>
         </div>
         {/* Dark Mode Toggle */}
         <button className="darkmode-toggle" onClick={handleToggleDarkMode} aria-label="Toggle dark mode">
           {darkMode ? <FaSun /> : <FaMoon />}
         </button>
-        {/* Admin Dashboard Toggle */}
-        <button className="admin-toggle" onClick={() => setShowAdmin(v => !v)}>
-          {showAdmin ? 'Back to Site' : 'Admin'}
-        </button>
-        {showAdmin ? (
-          <AdminDashboard />
-        ) : (
-          <>
-            {/* Social Media Buttons */}
-            <div className="social-buttons modern-social">
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
-              <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
-              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>
-            </div>
-            <h2 className="modern-tagline">Run, Meet Cute</h2>
-            {/* Countdown Timer */}
-            <CountdownTimer targetDate="2025-06-01T12:00:00" />
-            <div className="waitlist-content">
-              {!submitted ? (
-                <>
-                  <p className="modern-desc">The first dating app that matches runners based on pace, distance, and running goals.</p>
-                  <p className="subtitle modern-sub">Find your perfect running partner and maybe something more ✨</p>
-                  <form className="waitlist-form modern-form" onSubmit={handleSubmit} autoComplete="off">
-                    <div className="input-group">
-                      <input
-                        type="email"
-                        placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        disabled={loading}
-                        required
-                        className="modern-input"
-                      />
-                      <span className="input-icon">@</span>
-                    </div>
-                    <button type="submit" disabled={loading} className="modern-btn">
-                      <span>{loading ? 'Joining...' : 'Join the Waitlist'}</span>
-                    </button>
-                    {error && <div className="feedback error modern-feedback">{error}</div>}
-                  </form>
-                  <p className="terms modern-terms">By joining, you agree to our Terms and Privacy Policy</p>
-                </>
-              ) : (
-                <div className="success-message animate-in modern-success">
-                  <h2>You're on the Starting Line! 🎉</h2>
-                  <p>We'll notify you when it's time to start your journey to finding your running soulmate.</p>
-                  <div className="feedback success">Thank you for joining the waitlist! Please check your email for confirmation.</div>
+        {/* Social Media Buttons */}
+        <div className="social-buttons modern-social">
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
+          <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>
+        </div>
+        <h2 className="modern-tagline">Run, Meet Cute</h2>
+        {/* Countdown Timer */}
+        <CountdownTimer targetDate="2025-06-01T12:00:00" />
+        <div className="waitlist-content">
+          {!submitted ? (
+            <>
+              <p className="modern-desc">The first dating app that matches runners based on pace, distance, and running goals.</p>
+              <p className="subtitle modern-sub">Find your perfect running partner and maybe something more ✨</p>
+              <form className="waitlist-form modern-form" onSubmit={handleSubmit} autoComplete="off">
+                <div className="input-group">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={loading}
+                    required
+                    className="modern-input"
+                  />
+                  <span className="input-icon">@</span>
                 </div>
-              )}
+                <button type="submit" disabled={loading} className="modern-btn">
+                  <span>{loading ? 'Joining...' : 'Join the Waitlist'}</span>
+                </button>
+                {error && <div className="feedback error modern-feedback">{error}</div>}
+              </form>
+              <p className="terms modern-terms">By joining, you agree to our Terms and Privacy Policy</p>
+            </>
+          ) : (
+            <div className="success-message animate-in modern-success">
+              <h2>You're on the Starting Line! 🎉</h2>
+              <p>We'll notify you when it's time to start your journey to finding your running soulmate.</p>
+              <div className="feedback success">Thank you for joining the waitlist! Please check your email for confirmation.</div>
             </div>
-          </>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
