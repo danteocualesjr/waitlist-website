@@ -10,11 +10,12 @@ function AdminDashboard() {
     const stored = localStorage.getItem('waitlistUsers');
     return stored ? JSON.parse(stored) : [];
   });
-  
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [authenticated, setAuthenticated] = useState(false);
   const [search, setSearch] = useState('');
+  
   // For remembering admin credentials
   const [adminEmail, setAdminEmail] = useState(() => localStorage.getItem('adminEmail') || '');
   const [adminPassword, setAdminPassword] = useState(() => localStorage.getItem('adminPassword') || '');
