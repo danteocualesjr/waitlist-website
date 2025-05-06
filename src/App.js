@@ -11,7 +11,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   const validateEmail = (email) => {
-    
+
     // Simple regex for email validation
     return /^\S+@\S+\.\S+$/.test(email);
   };
@@ -19,6 +19,7 @@ function App() {
   const handleSubmit = (e) => {
 
     e.preventDefault();
+    
     setError('');
     if (!validateEmail(email)) {
       setError('Please enter a valid email address.');
