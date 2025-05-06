@@ -16,6 +16,7 @@ function App() {
   };
 
   const handleSubmit = (e) => {
+    
     e.preventDefault();
     setError('');
     if (!validateEmail(email)) {
