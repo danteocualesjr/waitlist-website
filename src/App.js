@@ -76,15 +76,14 @@ export default function App() {
             </div>
             <button type="submit" className="waitlist-btn-animated" disabled={status === 'loading' || status === 'success'}>
               {status === 'loading' ? 'Joining...' : status === 'success' ? 'Joined!' : 'Join the Waitlist'}
-            <button className="modern-btn" type="submit" disabled={status === 'loading'}>
-              {status === 'loading' ? 'Joining...' : 'Join the Waitlist'}
             </button>
-            {status === 'error' && <div className="modern-feedback error">{error}</div>}
+            {status === 'error' && <div className="waitlist-feedback error">{error}</div>}
+            {status === 'success' && <div className="waitlist-feedback success">🎉 You’re in! We’ll notify you at launch.</div>}
           </form>
-        )}
-        <div className="modern-terms">
-          By joining, you agree to our <a href="#" tabIndex="0">Terms</a> and <a href="#" tabIndex="0">Privacy Policy</a>.
         </div>
+      </main>
+      <div className="modern-terms">
+        By joining, you agree to our <a href="#" tabIndex="0">Terms</a> and <a href="#" tabIndex="0">Privacy Policy</a>.
       </div>
     </div>
   );
