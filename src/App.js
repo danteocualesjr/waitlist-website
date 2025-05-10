@@ -45,6 +45,10 @@ export default function App() {
     setStatus('loading');
     setTimeout(() => {
       setStatus('success');
+      setEmail('');
+    }, 1200);
+  };
+
   return (
     <div className="waitlist-bg">
       <div className="waitlist-bg-img"></div>
@@ -70,31 +74,8 @@ export default function App() {
               />
               <label htmlFor="waitlist-email" className={email ? 'floating' : ''}>Enter your email</label>
             </div>
-      setError('Please enter a valid email address.');
-      return;
-    }
-    setStatus('loading');
-    setTimeout(() => {
-      setStatus('success');
-    }, 1200);
-  };
-
-  return (
-    <div className="modern-bg">
-      <div className="modern-card glass">
-        <div className="modern-logo" aria-label="Logo" role="img" style={{fontSize: '2.8rem', marginBottom: '0.7rem'}}>🏃‍♂️</div>
-        <h1 className="modern-title">Rundezvous</h1>
-        <div className="modern-subtitle">Run, Meet, Connect</div>
-        <div className="modern-desc">
-          The first dating app that matches runners based on pace, distance, and running goals. Find your perfect running partner—and maybe something more.
-        </div>
-        <CountdownTimer targetDate={LAUNCH_DATE} />
-        {status === 'success' ? (
-          <div className="modern-success">
-            <h2>You're on the Starting Line! 🎉</h2>
-            <p>We'll notify you when it's time to start your journey to finding your running soulmate.</p>
-          </div>
-        ) : (
+            <button type="submit" className="waitlist-btn-animated" disabled={status === 'loading' || status === 'success'}>
+              {status === 'loading' ? 'Joining...' : status === 'success' ? 'Joined!' : 'Join the Waitlist'}
           <form className="modern-form" onSubmit={handleSubmit} autoComplete="off">
             <input
               className="modern-input"
