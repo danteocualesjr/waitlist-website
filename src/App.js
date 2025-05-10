@@ -9,11 +9,14 @@ function CountdownTimer({ targetDate }) {
     const interval = setInterval(() => setTimeLeft(getTimeLeft(targetDate)), 1000);
     return () => clearInterval(interval);
   }, [targetDate]);
-  if (timeLeft.total <= 0) return <span>We have launched!</span>;
+  if (timeLeft.total <= 0) return <span className="countdown-finished">🚀 We have launched!</span>;
   return (
-    <span className="countdown-timer">
-      {`${timeLeft.days}d : ${timeLeft.hours}h : ${timeLeft.minutes}m : ${timeLeft.seconds}s until launch`}
-    </span>
+    <div className="countdown-animated">
+      <span>{timeLeft.days}<span>d</span></span>
+      <span>{timeLeft.hours}<span>h</span></span>
+      <span>{timeLeft.minutes}<span>m</span></span>
+      <span>{timeLeft.seconds}<span>s</span></span>
+    </div>
   );
 }
 function getTimeLeft(target) {
@@ -26,6 +29,62 @@ function getTimeLeft(target) {
 }
 
 export default function App() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [error, setError] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError('');
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      setStatus('error');
+      setError('Please enter a valid email.');
+      return;
+    }
+    setStatus('loading');
+    setTimeout(() => {
+      setStatus('success');
+      setEmail('');
+    }, 1200);
+  };
+
+  return (
+    <div className="waitlist-bg">
+      <div className="waitlist-bg-img" />
+      <div className="waitlist-bg-overlay" />
+      <main className="waitlist-center">
+        <div className="waitlist-glass-card">
+          <div className="waitlist-logo">
+            <span role="img" aria-label="logo" className="waitlist-logo-icon">🏃‍♂️</span>
+          </div>
+          <h1 className="waitlist-headline">Rundezvous Launches Soon</h1>
+          <CountdownTimer targetDate={LAUNCH_DATE} />
+          <form className={`waitlist-form${status === 'loading' ? ' loading' : ''}`} onSubmit={handleSubmit} autoComplete="off">
+            <div className="waitlist-floating-label-group">
+              <input
+                type="email"
+                id="waitlist-email"
+                className="waitlist-input"
+                value={email}
+                onChange={e => { setEmail(e.target.value); setStatus('idle'); setError(''); }}
+                required
+                disabled={status === 'loading' || status === 'success'}
+                autoFocus
+              />
+              <label htmlFor="waitlist-email" className={email ? 'floating' : ''}>Enter your email</label>
+            </div>
+            <button type="submit" className="waitlist-btn-animated" disabled={status === 'loading' || status === 'success'}>
+              {status === 'loading' ? 'Joining...' : status === 'success' ? 'Joined!' : 'Join the Waitlist'}
+            </button>
+            {status === 'error' && <div className="waitlist-feedback error">{error}</div>}
+            {status === 'success' && <div className="waitlist-feedback success">🎉 You’re in! We’ll notify you at launch.</div>}
+          </form>
+        </div>
+      </main>
+    </div>
+  );
+}
+
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
   const [error, setError] = useState('');
