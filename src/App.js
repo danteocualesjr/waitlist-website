@@ -76,17 +76,6 @@ export default function App() {
             </div>
             <button type="submit" className="waitlist-btn-animated" disabled={status === 'loading' || status === 'success'}>
               {status === 'loading' ? 'Joining...' : status === 'success' ? 'Joined!' : 'Join the Waitlist'}
-          <form className="modern-form" onSubmit={handleSubmit} autoComplete="off">
-            <input
-              className="modern-input"
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={e => { setEmail(e.target.value); setStatus('idle'); setError(''); }}
-              disabled={status === 'loading'}
-              required
-              aria-label="Email address"
-            />
             <button className="modern-btn" type="submit" disabled={status === 'loading'}>
               {status === 'loading' ? 'Joining...' : 'Join the Waitlist'}
             </button>
