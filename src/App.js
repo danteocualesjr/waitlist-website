@@ -19,6 +19,7 @@ function CountdownTimer({ targetDate }) {
     </div>
   );
 }
+
 function getTimeLeft(target) {
   const total = Math.max(0, Math.floor((target - new Date()) / 1000));
   const days = Math.floor(total / (3600 * 24));
