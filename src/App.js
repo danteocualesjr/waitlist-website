@@ -79,16 +79,6 @@ export default function App() {
             {status === 'error' && <div className="waitlist-feedback error">{error}</div>}
             {status === 'success' && <div className="waitlist-feedback success">🎉 You’re in! We’ll notify you at launch.</div>}
           </form>
-        </div>
-      </main>
-    </div>
-  );
-}
-
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState('idle'); // idle | loading | success | error
-  const [error, setError] = useState('');
-
   const validateEmail = (email) => /^\S+@\S+\.\S+$/.test(email);
 
   const handleSubmit = (e) => {
