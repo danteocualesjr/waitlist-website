@@ -4,10 +4,8 @@
   min-height: 100vh;
   min-width: 100vw;
   background: linear-gradient(120deg, #fbc2eb 0%, #a7c7ff 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Remove position: fixed to allow proper centering */
+  position: relative;
+  /* Use block layout to allow absolute centering */
 }
 
 
@@ -32,6 +30,8 @@ html, body, #root {
   padding: 2.8rem 2.2rem 2.4rem 2.2rem;
   width: 410px;
   max-width: 98vw;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
   margin: auto;
   backdrop-filter: blur(18px) saturate(140%);
   border: 1.5px solid rgba(180,180,255,0.13);
