@@ -7,11 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
+  /* Remove position: fixed to allow proper centering */
 }
+
 
 html, body, #root {
   width: 100vw;
@@ -23,8 +21,9 @@ html, body, #root {
   font-family: 'Inter', 'Poppins', Arial, sans-serif;
   background: #f6f7fb;
   box-sizing: border-box;
-  overflow: hidden;
+  /* Remove overflow: hidden to allow flexbox centering */
 }
+
 
 .modern-card.glass {
   background: rgba(255,255,255,0.96);
