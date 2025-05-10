@@ -1,19 +1,5 @@
-.App.modern-bg {
-  width: 100vw;
-  height: 100vh;
-  min-height: 100vh;
-  min-width: 100vw;
-  background: linear-gradient(120deg, #fbc2eb 0%, #a7c7ff 100%);
-  position: relative;
-  /* Use block layout to allow absolute centering */
-}
-
-
-html, body, #root {
-  width: 100vw;
-  height: 100vh;
-  min-height: 100vh;
-  min-width: 100vw;
+body, html, #root {
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Inter', 'Poppins', Arial, sans-serif;
