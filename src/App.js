@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { FaRunning } from 'react-icons/fa';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -69,40 +68,50 @@ function App() {
   }
 
   return (
-    <div className="App minimal">
-      <div className="container minimal-container">
-        <div className="branding minimal-branding">
-          <FaRunning className="logo-icon minimal-logo" />
-          <h1>Rundezvous</h1>
+    <div className="App modern-bg">
+      <div className="modern-hero-bg">
+        {/* Abstract SVG Shape for Hero */}
+        <svg className="modern-hero-shape" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradient1" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#a7c7ff"/>
+              <stop offset="1" stopColor="#fbc2eb"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="400" cy="300" rx="340" ry="200" fill="url(#gradient1)" opacity="0.32"/>
+        </svg>
+      </div>
+      <div className="modern-card glass">
+        <div className="modern-branding">
+          <span className="modern-logo">🏃‍♂️</span>
+          <h1 className="modern-title">Rundezvous</h1>
         </div>
-        <h2 className="minimal-tagline">Run, Meet Cute</h2>
+        <h2 className="modern-subtitle">Run, Meet, Connect</h2>
+        <p className="modern-desc">The first dating app that matches runners based on pace, distance, and running goals. Find your perfect running partner—and maybe something more.</p>
         <CountdownTimer targetDate="2025-06-01T12:00:00" />
-        <div className="waitlist-content minimal-waitlist">
+        <div className="modern-waitlist-content">
           {!submitted ? (
-            <>
-              <p className="minimal-desc">The first dating app that matches runners based on pace, distance, and running goals.</p>
-              <form className="waitlist-form minimal-form" onSubmit={handleSubmit} autoComplete="off">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  disabled={loading}
-                  required
-                  className="minimal-input"
-                />
-                <button type="submit" disabled={loading} className="minimal-btn">
-                  {loading ? 'Joining...' : 'Join the Waitlist'}
-                </button>
-                {error && <div className="feedback error minimal-feedback">{error}</div>}
-              </form>
-              <p className="minimal-terms">By joining, you agree to our Terms and Privacy Policy</p>
-            </>
+            <form className="modern-form" onSubmit={handleSubmit} autoComplete="off">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={loading}
+                required
+                className="modern-input"
+              />
+              <button type="submit" disabled={loading} className="modern-btn">
+                {loading ? 'Joining...' : 'Join the Waitlist'}
+              </button>
+              {error && <div className="modern-feedback error">{error}</div>}
+              <p className="modern-terms">By joining, you agree to our <a href="#" tabIndex="-1">Terms</a> and <a href="#" tabIndex="-1">Privacy Policy</a>.</p>
+            </form>
           ) : (
-            <div className="success-message minimal-success">
-              <h2>You're on the Starting Line! </h2>
+            <div className="modern-success">
+              <h2>You're on the Starting Line! 🎉</h2>
               <p>We'll notify you when it's time to start your journey to finding your running soulmate.</p>
-              <div className="feedback success">Thank you for joining the waitlist! Please check your email for confirmation.</div>
+              <div className="modern-feedback success">Thank you for joining the waitlist! Please check your email for confirmation.</div>
             </div>
           )}
         </div>
