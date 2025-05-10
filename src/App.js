@@ -75,6 +75,14 @@ export default function App() {
             />
             <button className="modern-btn" type="submit" disabled={status === 'loading'}>
               {status === 'loading' ? 'Joining...' : 'Join the Waitlist'}
+            </button>
+            {status === 'error' && <div className="modern-feedback error">{error}</div>}
+          </form>
+        )}
+        <div className="modern-terms">
+          By joining, you agree to our <a href="#" tabIndex="0">Terms</a> and <a href="#" tabIndex="0">Privacy Policy</a>.
+        </div>
+      </div>
     </div>
   );
 }
