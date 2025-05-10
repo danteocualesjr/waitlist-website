@@ -1,12 +1,45 @@
 .App.modern-bg {
-  min-height: 100vh;
   width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: linear-gradient(120deg, #fbc2eb 0%, #a7c7ff 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(120deg, #fbc2eb 0%, #a7c7ff 100%);
-  position: relative;
-  overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+html, body, #root {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Poppins', Arial, sans-serif;
+  background: #f6f7fb;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.modern-card.glass {
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 12px 48px rgba(10, 37, 64, 0.12);
+  border-radius: 2.3rem;
+  padding: 2.8rem 2.2rem 2.4rem 2.2rem;
+  width: 410px;
+  max-width: 98vw;
+  margin: auto;
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1.5px solid rgba(180,180,255,0.13);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
 }
 
 .modern-hero-bg {
