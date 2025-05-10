@@ -75,31 +75,10 @@ export default function App() {
             />
             <button className="modern-btn" type="submit" disabled={status === 'loading'}>
               {status === 'loading' ? 'Joining...' : 'Join the Waitlist'}
-            </button>
-            {status === 'error' && <div className="modern-feedback error">{error}</div>}
-          </form>
-        )}
-        <div className="modern-terms">
-          By joining, you agree to our <a href="#" tabIndex="0">Terms</a> and <a href="#" tabIndex="0">Privacy Policy</a>.
     </div>
   );
 }
 
-function calculateTimeLeft(targetDate) {
-  const difference = +new Date(targetDate) - +new Date();
-  let timeLeft = {};
-  if (difference > 0) {
-    timeLeft = {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / 1000 / 60) % 60),
-      seconds: Math.floor((difference / 1000) % 60)
-    };
-  }
-  return timeLeft;
-}
-
-function App() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
