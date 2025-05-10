@@ -44,14 +44,10 @@ export default function App() {
     setStatus('loading');
     setTimeout(() => {
       setStatus('success');
-      setEmail('');
-    }, 1200);
-  };
-
   return (
     <div className="waitlist-bg">
-      <div className="waitlist-bg-img" />
-      <div className="waitlist-bg-overlay" />
+      <div className="waitlist-bg-img"></div>
+      <div className="waitlist-bg-overlay"></div>
       <main className="waitlist-center">
         <div className="waitlist-glass-card">
           <div className="waitlist-logo">
@@ -79,13 +75,6 @@ export default function App() {
             {status === 'error' && <div className="waitlist-feedback error">{error}</div>}
             {status === 'success' && <div className="waitlist-feedback success">🎉 You’re in! We’ll notify you at launch.</div>}
           </form>
-  const validateEmail = (email) => /^\S+@\S+\.\S+$/.test(email);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setError('');
-    if (!validateEmail(email)) {
-      setStatus('error');
       setError('Please enter a valid email address.');
       return;
     }
