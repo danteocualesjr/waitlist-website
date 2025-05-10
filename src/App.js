@@ -70,12 +70,6 @@ export default function App() {
               />
               <label htmlFor="waitlist-email" className={email ? 'floating' : ''}>Enter your email</label>
             </div>
-            <button type="submit" className="waitlist-btn-animated" disabled={status === 'loading' || status === 'success'}>
-              {status === 'loading' ? 'Joining...' : status === 'success' ? 'Joined!' : 'Join the Waitlist'}
-            </button>
-            {status === 'error' && <div className="waitlist-feedback error">{error}</div>}
-            {status === 'success' && <div className="waitlist-feedback success">🎉 You’re in! We’ll notify you at launch.</div>}
-          </form>
       setError('Please enter a valid email address.');
       return;
     }
