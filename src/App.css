@@ -371,17 +371,6 @@
 .App.dark-mode .branding h1 {
   color: #ffb3c6;
 }
-.App.dark-mode .logo-icon {
-  color: #ffb3c6;
-}
-.App.dark-mode .waitlist-content p,
-.App.dark-mode .terms {
-  color: #e3e3e3 !important;
-}
-.App.dark-mode .social-buttons a {
-  background: rgba(255,255,255,0.07);
-  color: #ffb3c6;
-}
 .App.dark-mode .social-buttons a:hover, .App.dark-mode .social-buttons a:focus {
   background: #ffb3c6;
   color: #0a2540;
