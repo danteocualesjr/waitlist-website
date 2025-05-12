@@ -13,7 +13,7 @@ function CountdownTimer({ targetDate }) {
   if (timeLeft.total <= 0) return <span className="countdown-finished">🚀 We have launched!</span>;
   return (
     <div className="countdown-animated">
-      
+
       <span>{timeLeft.days}<span>d</span></span>
       <span>{timeLeft.hours}<span>h</span></span>
       <span>{timeLeft.minutes}<span>m</span></span>
@@ -32,6 +32,7 @@ function getTimeLeft(target) {
 }
 
 export default function App() {
+  
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
   const [error, setError] = useState('');
