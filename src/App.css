@@ -6,6 +6,24 @@ body, html, #root {
   background: linear-gradient(120deg, #f6f7fb 0%, #a7c7ff 100%);
   box-sizing: border-box;
   overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Add a soft animated gradient overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: radial-gradient(ellipse at 70% 20%, #a7c7ff88 0%, #f6f7fb00 70%),
+              radial-gradient(ellipse at 30% 80%, #ffb3c688 0%, #f6f7fb00 80%);
+  z-index: 0;
+  pointer-events: none;
+  animation: float-bg 16s ease-in-out infinite alternate;
+}
+
+@keyframes float-bg {
+  0% { background-position: 70% 20%, 30% 80%; }
+  100% { background-position: 60% 30%, 40% 70%; }
 }
 
 .modern-hero-bg {
@@ -14,7 +32,9 @@ body, html, #root {
   z-index: 0;
   background: linear-gradient(120deg, #f6f7fb 0%, #a7c7ff 100%);
   animation: heroGradient 10s ease-in-out infinite alternate;
+  filter: blur(0.5px) brightness(1.03);
 }
+
 @keyframes heroGradient {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
@@ -24,22 +44,30 @@ body, html, #root {
 
 
 .modern-card.glass {
-  background: rgba(255,255,255,0.96);
-  box-shadow: 0 12px 48px rgba(10, 37, 64, 0.12);
-  border-radius: 2.3rem;
-  padding: 2.8rem 2.2rem 2.4rem 2.2rem;
+  background: rgba(255,255,255,0.88);
+  box-shadow: 0 16px 48px 0 rgba(10,37,64,0.18), 0 2px 12px 0 rgba(255,77,109,0.13);
+  border-radius: 2.8rem;
+  padding: 3.2rem 2.5rem 2.7rem 2.5rem;
   width: 410px;
   max-width: 98vw;
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   margin: auto;
-  backdrop-filter: blur(18px) saturate(140%);
-  border: 1.5px solid rgba(180,180,255,0.13);
+  backdrop-filter: blur(20px) saturate(170%);
+  border: 2px solid rgba(180,180,255,0.16);
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1;
+  z-index: 2;
+  animation: popfadein 1.3s cubic-bezier(.4,2,.6,1);
+  transition: box-shadow 0.3s, background 0.3s;
 }
+
+.modern-card.glass:hover {
+  box-shadow: 0 24px 64px 0 rgba(10,37,64,0.22), 0 4px 16px 0 rgba(255,77,109,0.16);
+  background: rgba(255,255,255,0.96);
+}
+
 
 .modern-hero-bg {
   position: absolute;
@@ -75,10 +103,41 @@ body, html, #root {
 .modern-branding {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 0.7rem;
+  gap: 1.2rem;
+  margin-bottom: 1.1rem;
   justify-content: center;
 }
+
+.modern-title {
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  font-size: 2.7rem;
+  font-weight: 900;
+  color: #232946;
+  letter-spacing: -1.2px;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(170,180,255,0.13);
+}
+
+.modern-subtitle {
+  color: #6d72c3;
+  font-size: 1.18rem;
+  font-weight: 600;
+  margin: 0.5rem 0 1.5rem 0;
+  letter-spacing: 0.4px;
+  opacity: 0.93;
+  text-align: center;
+}
+
+.modern-desc {
+  color: #232946;
+  font-size: 1.13rem;
+  margin-bottom: 2.1rem;
+  text-align: center;
+  line-height: 1.7;
+  opacity: 1;
+  font-weight: 500;
+}
+
 
 .modern-logo {
   font-size: 2.8rem;
@@ -169,15 +228,22 @@ body, html, #root {
 .modern-input {
   width: 100%;
   padding: 1.18rem 1.1rem;
-  border-radius: 1.1rem;
+  border-radius: 1.2rem;
   border: 1.5px solid #e0e7ff;
   background: #f7f8fa;
   color: #232946;
-  font-size: 1.07rem;
+  font-size: 1.09rem;
   font-weight: 500;
-  transition: border 0.22s, background 0.22s;
-  box-shadow: 0 2px 8px rgba(130,140,255,0.06);
+  transition: border 0.22s, background 0.22s, box-shadow 0.22s;
+  box-shadow: 0 2px 8px rgba(130,140,255,0.13);
 }
+.modern-input:focus {
+  outline: none;
+  border-color: #ff4d6d;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(255,77,109,0.18);
+}
+
 
 .modern-input::placeholder {
   color: #6d72c3;
@@ -401,17 +467,20 @@ body, html, #root {
 /* Countdown Timer Styles */
 .countdown-timer {
   margin: 1.2rem 0 2.2rem 0;
-  padding: 0.7rem 1.1rem;
-  background: rgba(255, 255, 255, 0.13);
-  border-radius: 14px;
-  font-size: 1.18rem;
-  font-weight: 600;
+  padding: 0.9rem 1.3rem;
+  background: rgba(255, 255, 255, 0.20);
+  border-radius: 18px;
+  font-size: 1.22rem;
+  font-weight: 700;
   color: #ff4d6d;
   letter-spacing: 1px;
   display: inline-block;
-  box-shadow: 0 2px 8px rgba(255,77,109,0.09);
-  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 4px 18px rgba(167,199,255,0.13);
+  border: 1.5px solid #ffb3c6;
+  backdrop-filter: blur(8px) saturate(140%);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
+
 .App.dark-mode .countdown-timer {
   background: rgba(10, 37, 64, 0.18);
   color: #ffb3c6;
@@ -759,7 +828,19 @@ body, html, #root {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-size: 200% 100%;
+  will-change: transform, box-shadow;
 }
+.modern-btn:hover, .modern-btn:focus {
+  background-position: 100% 0;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 32px rgba(255,77,109,0.20);
+}
+.modern-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px rgba(255,77,109,0.10);
+}
+
 .modern-btn span {
   position: relative;
   z-index: 2;
