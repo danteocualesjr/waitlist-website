@@ -62,6 +62,7 @@ export default function App() {
   };
 
   return (
+    
     <div className="modern-hero-bg">
       <main style={{minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <section className="modern-card glass" aria-label="Join Waitlist">
