@@ -50,41 +50,44 @@ export default function App() {
   };
 
   return (
-    <div className="waitlist-bg">
-      <div className="waitlist-bg-img"></div>
-      <div className="waitlist-bg-overlay"></div>
-      <main className="waitlist-center">
-        <div className="waitlist-glass-card">
-          <div className="waitlist-logo">
-            <span role="img" aria-label="logo" className="waitlist-logo-icon">🏃‍♂️</span>
+    <div className="modern-hero-bg">
+      <div className="modern-hero-shape" style={{background: 'radial-gradient(circle at 60% 40%, #a7c7ff 0%, #f6f7fb 100%)'}} />
+      <main style={{minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <section className="modern-card glass" aria-label="Join Waitlist">
+          <div className="modern-branding">
+            <span role="img" aria-label="logo" className="modern-logo">🚀</span>
+            <span className="modern-title">Rundezvous</span>
           </div>
-          <h1 className="waitlist-headline">Rundezvous Launches Soon</h1>
+          <div className="modern-subtitle">Launching Soon</div>
+          <div className="modern-desc">Be the first to know when we go live. Join our exclusive waitlist and get early access.</div>
           <CountdownTimer targetDate={LAUNCH_DATE} />
-          <form className={`waitlist-form${status === 'loading' ? ' loading' : ''}`} onSubmit={handleSubmit} autoComplete="off">
-            <div className="waitlist-floating-label-group">
+          <form className="modern-form" onSubmit={handleSubmit} autoComplete="off">
+            <div className="input-group">
+              <span className="input-icon" aria-hidden="true">📧</span>
               <input
                 type="email"
                 id="waitlist-email"
-                className="waitlist-input"
+                className="modern-input"
                 value={email}
                 onChange={e => { setEmail(e.target.value); setStatus('idle'); setError(''); }}
                 required
                 disabled={status === 'loading' || status === 'success'}
                 autoFocus
+                placeholder="Enter your email"
+                aria-label="Email address"
               />
-              <label htmlFor="waitlist-email" className={email ? 'floating' : ''}>Enter your email</label>
             </div>
-            <button type="submit" className="waitlist-btn-animated" disabled={status === 'loading' || status === 'success'}>
-              {status === 'loading' ? 'Joining...' : status === 'success' ? 'Joined!' : 'Join the Waitlist'}
+            <button type="submit" className="modern-btn" disabled={status === 'loading' || status === 'success'}>
+              <span>{status === 'loading' ? 'Joining...' : status === 'success' ? 'Joined!' : 'Join the Waitlist'}</span>
             </button>
-            {status === 'error' && <div className="waitlist-feedback error">{error}</div>}
-            {status === 'success' && <div className="waitlist-feedback success">🎉 You’re in! We’ll notify you at launch.</div>}
+            {status === 'error' && <div className="modern-feedback" style={{color:'#ff4d6d', borderColor:'#ffb3c6'}}>{error}</div>}
+            {status === 'success' && <div className="modern-success">🎉 You’re in! We’ll notify you at launch.</div>}
           </form>
-        </div>
+          <div className="modern-terms">
+            By joining, you agree to our <a href="#" tabIndex="0">Terms</a> and <a href="#" tabIndex="0">Privacy Policy</a>.
+          </div>
+        </section>
       </main>
-      <div className="modern-terms">
-        By joining, you agree to our <a href="#" tabIndex="0">Terms</a> and <a href="#" tabIndex="0">Privacy Policy</a>.
-      </div>
     </div>
   );
 }
