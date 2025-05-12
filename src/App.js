@@ -32,7 +32,7 @@ function getTimeLeft(target) {
 }
 
 export default function App() {
-  
+
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
   const [error, setError] = useState('');
@@ -70,7 +70,8 @@ export default function App() {
             <span className="modern-title">Rundezvous</span>
           </div>
           <div className="modern-subtitle">Launching Soon</div>
-          <div className="modern-desc">Be the first to know when we go live. Join our exclusive waitlist and get early access.</div>
+          <div className="modern-desc">Be the first to know when we go live.</div>
+          <div className="modern-desc">Join our exclusive waitlist and get early access.</div>
           <div className="modern-countdown-label">Countdown to launch:</div>
           <CountdownTimer targetDate={LAUNCH_DATE} />
           <form className="modern-form" onSubmit={handleSubmit} autoComplete="off">
