@@ -20,19 +20,6 @@ body, html, #root {
   100% { background-position: 100% 50%; }
 }
 
-.modern-hero-shape {
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%) scale(1.1);
-  width: 900px;
-  height: 600px;
-  max-width: 100vw;
-  opacity: 0.45;
-  filter: blur(8px);
-  background: radial-gradient(circle at 60% 40%, #a7c7ff 0%, #f6f7fb 100%);
-  pointer-events: none;
-  z-index: 1;
-}
 
 
 
@@ -61,16 +48,6 @@ body, html, #root {
   pointer-events: none;
 }
 
-.modern-hero-shape {
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%) scale(1.1);
-  width: 900px;
-  height: 600px;
-  max-width: 100vw;
-  opacity: 0.55;
-  filter: blur(4px);
-}
 
 .modern-card.glass {
   position: relative;
