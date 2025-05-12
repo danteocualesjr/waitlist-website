@@ -4,7 +4,7 @@ import './App.css';
 const LAUNCH_DATE = new Date('2025-06-01T12:00:00+08:00');
 
 function CountdownTimer({ targetDate }) {
-  
+
   const [timeLeft, setTimeLeft] = useState(getTimeLeft(targetDate));
   useEffect(() => {
     const interval = setInterval(() => setTimeLeft(getTimeLeft(targetDate)), 1000);
@@ -13,6 +13,7 @@ function CountdownTimer({ targetDate }) {
   if (timeLeft.total <= 0) return <span className="countdown-finished">🚀 We have launched!</span>;
   return (
     <div className="countdown-animated">
+      
       <span>{timeLeft.days}<span>d</span></span>
       <span>{timeLeft.hours}<span>h</span></span>
       <span>{timeLeft.minutes}<span>m</span></span>
