@@ -8,8 +8,9 @@ function CountdownTimer({ targetDate }) {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft(targetDate));
 
   useEffect(() => {
-    
+
     const interval = setInterval(() => setTimeLeft(getTimeLeft(targetDate)), 1000);
+    
     return () => clearInterval(interval);
   }, [targetDate]);
   if (timeLeft.total <= 0) return <span className="countdown-finished">🚀 We have launched!</span>;
