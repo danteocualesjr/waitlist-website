@@ -4,6 +4,7 @@ import './App.css';
 const LAUNCH_DATE = new Date('2025-06-01T12:00:00+08:00');
 
 function CountdownTimer({ targetDate }) {
+  
   const [timeLeft, setTimeLeft] = useState(getTimeLeft(targetDate));
   useEffect(() => {
     const interval = setInterval(() => setTimeLeft(getTimeLeft(targetDate)), 1000);
