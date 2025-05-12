@@ -138,6 +138,18 @@ body::before {
   font-weight: 500;
 }
 
+.modern-countdown-label {
+  color: #6d72c3;
+  font-size: 1.11rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  margin-top: -1.2rem;
+  text-align: center;
+  opacity: 0.93;
+  letter-spacing: 0.3px;
+  animation: fadein 1.1s cubic-bezier(.4,2,.6,1);
+}
+
 
 .modern-logo {
   font-size: 2.8rem;

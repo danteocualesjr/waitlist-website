@@ -60,6 +60,7 @@ export default function App() {
           </div>
           <div className="modern-subtitle">Launching Soon</div>
           <div className="modern-desc">Be the first to know when we go live. Join our exclusive waitlist and get early access.</div>
+          <div className="modern-countdown-label">Countdown to launch:</div>
           <CountdownTimer targetDate={LAUNCH_DATE} />
           <form className="modern-form" onSubmit={handleSubmit} autoComplete="off">
             <div className="input-group">
