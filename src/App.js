@@ -33,6 +33,15 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
   const [error, setError] = useState('');
+  const [confetti, setConfetti] = useState(false);
+
+  useEffect(() => {
+    if (status === 'success') {
+      setConfetti(true);
+      const timer = setTimeout(() => setConfetti(false), 1200);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +60,6 @@ export default function App() {
 
   return (
     <div className="modern-hero-bg">
-      <div className="modern-hero-shape" style={{background: 'radial-gradient(circle at 60% 40%, #a7c7ff 0%, #f6f7fb 100%)'}} />
       <main style={{minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <section className="modern-card glass" aria-label="Join Waitlist">
           <div className="modern-branding">
@@ -64,7 +72,7 @@ export default function App() {
           <CountdownTimer targetDate={LAUNCH_DATE} />
           <form className="modern-form" onSubmit={handleSubmit} autoComplete="off">
             <div className="input-group">
-              <span className="input-icon" aria-hidden="true">📧</span>
+              <span className="input-icon" aria-hidden="true">🛩️</span>
               <input
                 type="email"
                 id="waitlist-email"
@@ -82,7 +90,7 @@ export default function App() {
               <span>{status === 'loading' ? 'Joining...' : status === 'success' ? 'Joined!' : 'Join the Waitlist'}</span>
             </button>
             {status === 'error' && <div className="modern-feedback" style={{color:'#ff4d6d', borderColor:'#ffb3c6'}}>{error}</div>}
-            {status === 'success' && <div className="modern-success">🎉 You’re in! We’ll notify you at launch.</div>}
+            {status === 'success' && <div className={`modern-success${confetti ? ' confetti' : ''}`}>🎉 You’re in! We’ll notify you at launch.</div>}
           </form>
           <div className="modern-terms">
             By joining, you agree to our <a href="#" tabIndex="0">Terms</a> and <a href="#" tabIndex="0">Privacy Policy</a>.
@@ -92,3 +100,4 @@ export default function App() {
     </div>
   );
 }
+
