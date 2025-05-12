@@ -6,6 +6,7 @@ const LAUNCH_DATE = new Date('2025-06-01T12:00:00+08:00');
 function CountdownTimer({ targetDate }) {
 
   const [timeLeft, setTimeLeft] = useState(getTimeLeft(targetDate));
+  
   useEffect(() => {
     const interval = setInterval(() => setTimeLeft(getTimeLeft(targetDate)), 1000);
     return () => clearInterval(interval);
@@ -62,7 +63,7 @@ export default function App() {
   };
 
   return (
-    
+
     <div className="modern-hero-bg">
       <main style={{minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <section className="modern-card glass" aria-label="Join Waitlist">
