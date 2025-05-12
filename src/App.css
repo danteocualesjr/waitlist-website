@@ -144,11 +144,14 @@ body::before {
 .modern-desc {
   color: #232946;
   font-size: 1.13rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.8rem;
   text-align: center;
   line-height: 1.7;
   opacity: 1;
   font-weight: 500;
+}
+.modern-desc + .modern-desc {
+  margin-top: 1.3rem;
 }
 
 .modern-countdown-label {
