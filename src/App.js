@@ -14,6 +14,7 @@ function CountdownTimer({ targetDate }) {
     return () => clearInterval(interval);
     
   }, [targetDate]);
+  
   if (timeLeft.total <= 0) return <span className="countdown-finished">🚀 We have launched!</span>;
   return (
     <div className="countdown-animated">
